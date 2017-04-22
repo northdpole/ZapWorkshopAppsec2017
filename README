@@ -1,0 +1,7 @@
+Depenencies:
+php, phpunit, apache, composer, java, php-curl
+
+
+Commands:
+$composer install
+$php -S localhost:8000
