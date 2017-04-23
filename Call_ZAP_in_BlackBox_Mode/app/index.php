@@ -12,7 +12,8 @@ if(isset($_GET['s'])){
 
 <form method="GET">
 <input type="text" name="x">
-<button type="submit" value="submit">
+<button name="submit" type="submit" value="submit">   Submit</button>
 </form>
+<a href="index.php?x=a">a</a>
 </body>
 </html>

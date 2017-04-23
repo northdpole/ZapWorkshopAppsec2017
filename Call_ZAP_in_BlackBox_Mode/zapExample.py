@@ -3,70 +3,75 @@
 import time
 from pprint import pprint
 from zapv2 import ZAPv2
-import os
-import subprocess
+import traceback
+from subprocess import Popen
 
-zap_path='/var/www/html/ZAPWorkshop/ZAP_2.5.0/zap.sh'
+zap_path = '../ZAP_2.6.0/zap.sh'
 
 print 'Starting ZAP ...'
-subprocess.Popen([zap_path,'-daemon','-port 8090'],stdout=open(os.devnull,'w'))
+apiKey = '12345'
+logfile = './logs/zapErrors.log'
+proc = Popen([zap_path,'-port','8090', '-daemon', '-config','api.key=12345','-dir','/tmp/foo/'], stdout=open(logfile, 'w+'))
 print 'Waiting for ZAP to load, 10 seconds ...'
 time.sleep(10)
 
 # Here the target is defined and an instance of ZAP is created.
-target = 'http://localhost/Call_ZAP_in_BlackBox_Mode/app/'
-zap = ZAPv2()
-
+target = 'http://127.0.0.1:7070/Call_ZAP_in_BlackBox_Mode/app/index.php'
+zap = ZAPv2(apikey=apiKey, proxies={'http': 'http://127.0.0.1:8090','https':'http://127.0.0.1:8090'})
 # Use the line below if ZAP is not listening on 8090.
-zap = ZAPv2(proxies={'http': 'http://127.0.0.1:8090'})
+# zap = ZAPv2(proxies={'http': 'http://127.0.0.1:8090'})
 
 # ZAP starts accessing the target.
-print 'Accessing target %s' % target
-zap.urlopen(target)
-time.sleep(2)
+try:
 
-# The spider starts crawling the website for URLs
-print 'Spidering target %s' % target
-zap.spider.scan(target)
+    print 'Accessing target %s' % target
+    zap.urlopen(target)
+    time.sleep(2)
 
-# Progress of spider
-time.sleep(2)
-print 'Status %s' % zap.spider.status
-while (int(zap.spider.status) < 100):
-   print 'Spider progress %: ' + zap.spider.status
+    # The spider starts crawling the website for URLs
+    print 'Spidering target %s' % target
+    spiderId = zap.spider.scan(target)
+    # Progress of spider
+    time.sleep(2)
+    print 'Status %s' % zap.spider.status(spiderId)
+    while (int(zap.spider.status(spiderId)) < 100):
+        print 'Spider progress %: ' + zap.spider.status(spiderId)
+        time.sleep(4)
 
-   time.sleep(400)
+    print 'Spider completed'
 
-print 'Spider completed'
+    # Give the passive scanner a chance to finish
+    time.sleep(5)
 
-# Give the passive scanner a chance to finish
-time.sleep(5)
+    # The active scanning starts
+    print 'Scanning target %s' % target
+    scanid = zap.ascan.scan(target)
+    while (int(zap.ascan.status(scanid)) < 100):
+        print 'Scan progress %: ' + zap.ascan.status(scanid)
+        time.sleep(6)
 
-# The active scanning starts
-print 'Scanning target %s' % target
-zap.ascan.scan(target)
-while (int(zap.ascan.status) < 100):
-   print 'Scan progress %: ' + zap.ascan.status
+    print 'Scan completed'
 
-   time.sleep(600)
+    # Report the results
+    print 'Hosts: ' + ', '.join(zap.core.hosts)
+    print 'Alerts: '
 
-print 'Scan completed'
+    for element in zap.core.alerts():
+        # Navigation alert, alerts contain a list which contains a dictionary
+        del element["description"]
+        del element["solution"]
+        del element["id"]
+        del element["messageId"]
+        # del element["reliability"]
+        del element["other"]
+        del element["reference"]
+        del element["param"]
 
-# Report the results
-print 'Hosts: ' + ', '.join(zap.core.hosts)
-print 'Alerts: '
-
-for element in alerts["alerts"]:
-   # Navigation alert, alerts contain a list which contains a dictionary
-   del element["description"]
-   del element["solution"]
-   del element["id"]
-   del element["messageId"]
-   del element["reliability"]
-   del element["other"]
-   del element["reference"]
-   del element["param"]
-
-# To close ZAP:
-zap.core.shutdown()
-pprint(zap.core.alerts())
+    # To close ZAP:
+    zap.core.shutdown()
+    pprint(zap.core.alerts())
+except Exception, e:
+    print(e)
+    traceback.print_exc()
+finally:
+    proc.kill()
