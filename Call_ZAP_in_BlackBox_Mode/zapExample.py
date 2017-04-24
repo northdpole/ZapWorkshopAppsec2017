@@ -11,7 +11,7 @@ zap_path = '../ZAP_2.6.0/zap.sh'
 print 'Starting ZAP ...'
 apiKey = '12345'
 logfile = './logs/zapErrors.log'
-proc = Popen([zap_path,'-port','8090', '-daemon', '-config','api.key=12345','-dir','/tmp/foo/'], stdout=open(logfile, 'w+'))
+proc = Popen([zap_path,'-port','8090', '-daemon', '-config','api.key=12345','-dir','/tmp/bar/'], stdout=open(logfile, 'w+'))
 print 'Waiting for ZAP to load, 10 seconds ...'
 time.sleep(10)
 
@@ -45,11 +45,12 @@ try:
 
     # The active scanning starts
     print 'Scanning target %s' % target
-    scanid = zap.ascan.scan(target)
+    zap.ascan.set_option_rescan_in_attack_mode(True)
+    scanid = zap.ascan.scan(url=target,recurse=True,inscopeonly=False)
+    pprint(zap.ascan.excluded_params)
     while (int(zap.ascan.status(scanid)) < 100):
         print 'Scan progress %: ' + zap.ascan.status(scanid)
-        time.sleep(6)
-
+        # time.sleep(6)
     print 'Scan completed'
 
     # Report the results
@@ -58,18 +59,18 @@ try:
 
     for element in zap.core.alerts():
         # Navigation alert, alerts contain a list which contains a dictionary
-        del element["description"]
-        del element["solution"]
-        del element["id"]
-        del element["messageId"]
+        pprint(element["description"])
+        # del element["solution"]
+        # pprint(element["id"])
+        # pprint(element["messageId"])
         # del element["reliability"]
-        del element["other"]
-        del element["reference"]
-        del element["param"]
+        # del element["other"]
+        # del element["reference"]
+        pprint(element["param"])
 
     # To close ZAP:
     zap.core.shutdown()
-    pprint(zap.core.alerts())
+    # pprint(zap.core.alerts())
 except Exception, e:
     print(e)
     traceback.print_exc()
