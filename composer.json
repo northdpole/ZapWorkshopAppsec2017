@@ -1,6 +1,0 @@
-{
-    "require": {
-        "phpunit/phpunit": "*",
-        "facebook/webdriver": "1.0.2"
-    }
-}

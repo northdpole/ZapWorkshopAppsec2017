@@ -15,7 +15,7 @@ proc = Popen([zap_path,'-port','8090', '-daemon', '-config','api.key=12345','-di
 print 'Waiting for ZAP to load, 10 seconds ...'
 time.sleep(10)
 
-# Here the target is defined and an instance of ZAP is created.
+# Here the target is defined and an instance of ZAP is created.Q
 target = 'http://127.0.0.1:7070/Call_ZAP_in_BlackBox_Mode/app/index.php'
 zap = ZAPv2(apikey=apiKey, proxies={'http': 'http://127.0.0.1:8090','https':'http://127.0.0.1:8090'})
 # Use the line below if ZAP is not listening on 8090.
@@ -47,7 +47,6 @@ try:
     print 'Scanning target %s' % target
     zap.ascan.set_option_rescan_in_attack_mode(True)
     scanid = zap.ascan.scan(url=target,recurse=True,inscopeonly=False)
-    pprint(zap.ascan.excluded_params)
     while (int(zap.ascan.status(scanid)) < 100):
         print 'Scan progress %: ' + zap.ascan.status(scanid)
         # time.sleep(6)
@@ -56,7 +55,6 @@ try:
     # Report the results
     print 'Hosts: ' + ', '.join(zap.core.hosts)
     print 'Alerts: '
-
     for element in zap.core.alerts():
         # Navigation alert, alerts contain a list which contains a dictionary
         pprint(element["description"])
@@ -73,6 +71,6 @@ try:
     # pprint(zap.core.alerts())
 except Exception, e:
     print(e)
-    traceback.print_exc()
+    traceback.prifnt_exc()
 finally:
     proc.kill()
