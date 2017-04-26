@@ -1,13 +1,14 @@
 <?php
 declare(strict_types=1);
-require_once '../vendor/autoload.php';
 
-use PHPUnit\Framework\TestCase;
-use Facebook\WebDriver\Remote\WebDriverCapabilityType;
-use Facebook\WebDriver\Remote\RemoteWebDriver;
-use Facebook\WebDriver\WebDriverBy;
+require __DIR__ . '/vendor/autoload.php';
 
-final class FooTest extends TestCase
+//use PHPUnit\Framework\TestCase;
+//use Facebook\WebDriver\Remote\WebDriverCapabilityType;
+//use Facebook\WebDriver\Remote\RemoteWebDriver;
+//use Facebook\WebDriver\WebDriverBy;
+
+class FooTest extends PHPUnit_Framework_TestCase
 {
 	protected static $webDriver;
 	protected $url = 'http://localhost:8000/Access_To_Unit_Tests/sqli_xss.php';
@@ -17,11 +18,11 @@ final class FooTest extends TestCase
 	public function setUp()
 	{
 		$capabilities = [
-			WebDriverCapabilityType::BROWSER_NAME => 'firefox'//,
+			\WebDriverCapabilityType::BROWSER_NAME => 'firefox'//,
 			/*		WebDriverCapabilityType::PROXY => [
 					'proxyType' => 'manual',
-					'httpProxy' => '127.0.0.1:9090',
-					'sslProxy' => '127.0.0.1:9090',
+					'httpProxy' => '127.0.0.1:8090
+					'sslProxy' => '127.0.0.1:8090',
 					],
 			 */	];
 		self::$webDriver = RemoteWebDriver::create('http://localhost:4444/wd/hub', $capabilities);
@@ -30,7 +31,7 @@ final class FooTest extends TestCase
 
 	public function testEchoesName()//ZAP should flag this as XSS
 	{	
-		self::$webDriver->get($this->url."?x=foo");
+		self::$webDriver->get($this->url."?query=foo");
 		$element = self::$webDriver->findElement(WebDriverBy::id("id_echo"));
 		$this->assertContains('foo',$element->getText());//assert that the page contains foo
 	}
@@ -39,6 +40,11 @@ final class FooTest extends TestCase
 		$element = self::$webDriver->findElement(WebDriverBy::id("id_echo2"));
 		$this->assertContains('bar',$element->getText());//assert that the page contains foo
 	
+	}
+	public function testHidden(){
+		self::$webDriver->get($this->url."?hidden=foo");
+		$element = self::$webDriver->findElement(WebDriverBy::id("id_echo"));
+		$this->assertContains('foo',$element->getText());//assert that the page contains foo
 	}
 	public function testCanInsertInDB()
 
