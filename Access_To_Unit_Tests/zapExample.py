@@ -6,7 +6,6 @@ from zapv2 import ZAPv2
 import traceback
 from subprocess import Popen
 
-zap_path = '../ZAP_2.6.0/zap.sh'
 print 'Starting ZAP ...'
 apiKey = '12345'
 
@@ -17,7 +16,8 @@ zap_logfile = logs_dir + '/zapErrors.log'
 
 print 'Logs dir is '+ logs_dir
 
-proc = Popen([zap_path,'-port','8090', '-daemon', '-config','api.key=12345','-dir','/tmp/bar/'], stdout=open(zap_logfile, 'w+'))
+zap_path = curr_dir+'/../ZAP_2.6.0/zap.sh'
+proc = Popen([zap_path,'-port','8090', '-daemon', '-config','api.key=12345','-dir','/tmp/'+str(time.clock())], stdout=open(zap_logfile, 'w+'))
 print 'Waiting for ZAP to load, 10 seconds ...'
 time.sleep(10)
 
