@@ -1,0 +1,12 @@
+commit 8c52fb6ca63dc17e443b6b2151694451327e714c
+tree b2f31d066c74da8c5f2aede4b0974802fcb0057d
+parent 7804e73f2b5ef4beddda0bc124e2e2503f5f1a03
+author spyros <morfeas3000@gmail.com> 2017-05-03 19:39:29 +0100
+committer spyros <morfeas3000@gmail.com> 2017-05-03 19:39:29 +0100
+
+    fixed selenium dir
+
+    Signed-off-by: spyros <morfeas3000@gmail.com>
+
+
+:100644 100644 0d0d64c6ba84b3e759f5b652812d3bdb30a038b7 c67605a24e864456fc21492515c925756272532c M	Access_To_Unit_Tests/zapExample.py
