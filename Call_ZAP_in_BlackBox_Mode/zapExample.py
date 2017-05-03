@@ -20,8 +20,14 @@ proc = Popen([zap_path,'-port','8090', '-daemon', '-config','api.key=12345','-di
 print 'Waiting for ZAP to load, 10 seconds ...'
 time.sleep(10)
 
+
+#start a php server running on the url
+php_logfile = logs_dir+'/acces.log'
+server = Popen(['php', '-S', '127.0.0.1:7070'], stdout=open(php_logfile, 'w+'))
+
 # Here the target is defined and an instance of ZAP is created.Q
-target = 'http://127.0.0.1:7070/Call_ZAP_in_BlackBox_Mode/app/index.php'
+target = 'http://127.0.0.1:7070/app/index.php'
+
 zap = ZAPv2(apikey=apiKey, proxies={'http': 'http://127.0.0.1:8090','https':'http://127.0.0.1:8090'})
 # Use the line below if ZAP is not listening on 8090.
 # zap = ZAPv2(proxies={'http': 'http://127.0.0.1:8090'})
@@ -79,3 +85,4 @@ except Exception, e:
     traceback.prifnt_exc()
 finally:
     proc.kill()
+    server.kill()
