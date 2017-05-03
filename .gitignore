@@ -1,3 +1,11 @@
+#composer files
+/vendor
+
+#logs
+logs/*
+# dotenv
+.env
+
 #
 .idea/
 #composer files
