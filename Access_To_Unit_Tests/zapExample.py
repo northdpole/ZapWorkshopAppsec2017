@@ -1,5 +1,5 @@
 #!/usr/bin/env/python
-
+import os
 import time
 from pprint import pprint
 from zapv2 import ZAPv2
@@ -9,27 +9,35 @@ from subprocess import Popen
 zap_path = '../ZAP_2.6.0/zap.sh'
 print 'Starting ZAP ...'
 apiKey = '12345'
-logfile = './logs/zapErrors.log'
-proc = Popen([zap_path,'-port','8090', '-daemon', '-config','api.key=12345','-dir','/tmp/bar/'], stdout=open(logfile, 'w+'))
+
+curr_dir = (os.path.dirname(os.path.realpath(__file__)))
+
+logs_dir = curr_dir+'/logs'
+zap_logfile = logs_dir + '/zapErrors.log'
+
+print 'Logs dir is '+ logs_dir
+
+proc = Popen([zap_path,'-port','8090', '-daemon', '-config','api.key=12345','-dir','/tmp/bar/'], stdout=open(zap_logfile, 'w+'))
 print 'Waiting for ZAP to load, 10 seconds ...'
 time.sleep(10)
 
 selenium_path = './selenium-server-standalone-3.3.1.jar'
-seleniumlogfile = './logs/selenium.log'
+selenium_logfile = logs_dir+'/selenium.log'
+
 print 'Starting Selenium server...'
-selenium = Popen(['java','-jar',selenium_path], stdout=open(seleniumlogfile, 'w+'))
+selenium = Popen(['java','-jar',selenium_path], stdout=open(selenium_logfile, 'w+'))
 print 'Waiting for selenium to load, 10 seconds ...'
 time.sleep(10)
 
 
 # Here the target is defined and an instance of ZAP is created.Q
 target = 'http://127.0.0.1:7070/Call_ZAP_in_BlackBox_Mode/app/index.php'
-phpunitlogfile = './logs/phpunit.log'
+phpunit_logfile = logs_dir+'/phpunit.log'
 zap = ZAPv2(apikey=apiKey, proxies={'http': 'http://127.0.0.1:8090','https':'http://127.0.0.1:8090'})
 # Use the line below if ZAP is not listening on 8090.
 # zap = ZAPv2(proxies={'http': 'http://127.0.0.1:8090'})
 
-unitests = Popen(['phpunit'], stdout=open(phpunitlogfile, 'w+'))
+unitests = Popen(['phpunit'], stdout=open(phpunit_logfile, 'w+'))
 
 # ZAP starts accessing the target.
 try:
