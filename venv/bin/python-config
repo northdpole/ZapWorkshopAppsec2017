@@ -1,4 +1,4 @@
-#!/home/user/ZAPWorkshop/venv/bin/python
+#!/home/test/ZapWorkshopAppsec2017/venv/bin/python
 
 import sys
 import getopt
