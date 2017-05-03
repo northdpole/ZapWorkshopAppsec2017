@@ -8,7 +8,7 @@ from subprocess import Popen
 import os
 
 curr_dir = (os.path.dirname(os.path.realpath(__file__)))
-zap_path = '../ZAP_2.6.0/zap.sh'
+zap_path = curr_dir+'/../ZAP_2.6.0/zap.sh'
 
 print 'Starting ZAP ...'
 apiKey = '12345'
