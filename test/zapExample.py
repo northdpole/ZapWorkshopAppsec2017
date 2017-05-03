@@ -1,23 +1,27 @@
-#!/usr/bin/env/python
-
+import os
 import time
 from pprint import pprint
 from zapv2 import ZAPv2
 import traceback
 from subprocess import Popen
 
-zap_path = '../ZAP_2.6.0/zap.sh'
-print('Starting ZAP ...')
 apiKey = '12345'
-logfile = './logs/zapErrors.log'
-proc = Popen([zap_path,'-port','8090', '-daemon', '-config','api.key=12345','-dir','/tmp/bar/'], stdout=open(logfile, 'w+'))
+curr_dir = (os.path.dirname(os.path.realpath(__file__)))
+logs_dir = curr_dir+'/logs'
+print 'Logs dir is '+ logs_dir
+main_test_file = curr_dir+'/app/'
+
+zap_logfile = logs_dir + '/zapErrors.log'
+zap_path = curr_dir+'/../ZAP_2.6.0/zap.sh'
+print('Starting ZAP ...')
+proc = Popen([zap_path,'-port','8090', '-daemon', '-config','api.key=12345','-dir','/tmp/'+str(time.clock())], stdout=open(zap_logfile, 'w+'))
 print('Waiting for ZAP to load, 10 seconds ...')
 time.sleep(10)
 
-selenium_path = './selenium-server-standalone-3.3.1.jar'
-seleniumlogfile = './logs/selenium.log'
+selenium_path = curr_dir+'/selenium-server-standalone-3.3.1.jar'
+selenium_logfile = logs_dir+'/selenium.log'
 print ('Starting Selenium server...')
-selenium = Popen(['java','-jar',selenium_path], stdout=open(seleniumlogfile, 'w+'))
+selenium = Popen(['java','-jar',selenium_path], stdout=open(selenium_logfile, 'w+'))
 print ('Waiting for selenium to load, 10 seconds ...')
 time.sleep(10)
 
@@ -25,21 +29,22 @@ time.sleep(10)
 # Here the target is defined and an instance of ZAP is created.Q
 target = 'http://127.0.0.1:7070/index.php'
 #start a php server running on the url
-phpLogfile = './logs/access.log'
-server = Popen(['php','-S','127.0.0.1:7070'], stdout=open(phpLogfile, 'w+'))
-
-phpunitlogfile = './logs/phpunit.log'
-zap = ZAPv2(apikey=apiKey, proxies={'http': 'http://127.0.0.1:8090','https':'http://127.0.0.1:8090'})
-# Use the line below if ZAP is not listening on 8090.
-# zap = ZAPv2(proxies={'http': 'http://127.0.0.1:8090'})
+php_logfile = logs_dir+'/acces.log'
+server = Popen(['php', '-S', '127.0.0.1:7070'], stdout=open(php_logfile, 'w+'))
 
 unitTestFile = 'fooTest.php'
+phpunit_logfile = logs_dir + '/phpunit.log'
+print('Proxied Unittests running')
+unitests = Popen(['./vendor/phpunit/phpunit/phpunit', unitTestFile], stdout=open(phpunit_logfile, 'w+'))
+time.sleep(10)  # give unit tests a chance to run
+
+zap = ZAPv2(apikey=apiKey, proxies={'http': 'http://127.0.0.1:8090','https':'http://127.0.0.1:8090'})
+# Use the line below if ZAP is not listening on 8090.
+
+
 
 # ZAP starts accessing the target.
 try:
-    print('Proxied Unittests running')
-    unitests = Popen(['./vendor/phpunit/phpunit/phpunit',unitTestFile], stdout=open(phpunitlogfile, 'w+'))
-    time.sleep(10) #give unit tests a chance to run
 
     print('Accessing target %s' % target)
     zap.urlopen(target)

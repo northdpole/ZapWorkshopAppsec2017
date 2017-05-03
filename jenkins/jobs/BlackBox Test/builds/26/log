@@ -1,0 +1,71 @@
+Started by user [8mha:////4OMlxHjj8oX1cJuOWKCg1HqpTKESs1VnVlC9iYVpfzBEAAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyWEgYu/dLi1CL9ktTiEgCd0uccvwAAAA==[0mtest
+Building in workspace /var/lib/jenkins/workspace/BlackBox Test
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/northdpole/ZapWorkshopAppsec2017 # timeout=10
+Fetching upstream changes from https://github.com/northdpole/ZapWorkshopAppsec2017
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/northdpole/ZapWorkshopAppsec2017 +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 8c52fb6ca63dc17e443b6b2151694451327e714c (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 8c52fb6ca63dc17e443b6b2151694451327e714c
+ > git rev-list 7804e73f2b5ef4beddda0bc124e2e2503f5f1a03 # timeout=10
+[BlackBox Test] $ /usr/bin/python2.7 /var/lib/jenkins/shiningpanda/jobs/18aee27a/virtualenv.py /var/lib/jenkins/shiningpanda/jobs/18aee27a/virtualenvs/d41d8cd9
+New python executable in /var/lib/jenkins/shiningpanda/jobs/18aee27a/virtualenvs/d41d8cd9/bin/python2.7
+Also creating executable in /var/lib/jenkins/shiningpanda/jobs/18aee27a/virtualenvs/d41d8cd9/bin/python
+Installing setuptools, pip, wheel...
+  Complete output from command /var/lib/jenkins/shi...1d8cd9/bin/python2.7 - setuptools pip wheel:
+  Collecting setuptools
+  Using cached setuptools-35.0.2-py2.py3-none-any.whl
+Collecting pip
+  Using cached pip-9.0.1-py2.py3-none-any.whl
+Collecting wheel
+  Using cached wheel-0.30.0a0-py2.py3-none-any.whl
+Collecting appdirs>=1.4.0 (from setuptools)
+  Using cached appdirs-1.4.3-py2.py3-none-any.whl
+Collecting packaging>=16.8 (from setuptools)
+  Using cached packaging-16.8-py2.py3-none-any.whl
+Collecting six>=1.6.0 (from setuptools)
+  Using cached six-1.10.0-py2.py3-none-any.whl
+Collecting pyparsing (from packaging>=16.8->setuptools)
+  Using cached pyparsing-2.2.0-py2.py3-none-any.whl
+Installing collected packages: appdirs, pyparsing, six, packaging, setuptools, pip, wheel
+Exception:
+Traceback (most recent call last):
+  File "/var/lib/jenkins/shiningpanda/jobs/18aee27a/pip-0-py2.py3-none-any.whl/pip/basecommand.py", line 215, in main
+    status = self.run(options, args)
+  File "/var/lib/jenkins/shiningpanda/jobs/18aee27a/pip-0-py2.py3-none-any.whl/pip/commands/install.py", line 317, in run
+    prefix=options.prefix_path,
+  File "/var/lib/jenkins/shiningpanda/jobs/18aee27a/pip-0-py2.py3-none-any.whl/pip/req/req_set.py", line 742, in install
+    **kwargs
+  File "/var/lib/jenkins/shiningpanda/jobs/18aee27a/pip-0-py2.py3-none-any.whl/pip/req/req_install.py", line 831, in install
+    self.move_wheel_files(self.source_dir, root=root, prefix=prefix)
+  File "/var/lib/jenkins/shiningpanda/jobs/18aee27a/pip-0-py2.py3-none-any.whl/pip/req/req_install.py", line 1032, in move_wheel_files
+    isolated=self.isolated,
+  File "/var/lib/jenkins/shiningpanda/jobs/18aee27a/pip-0-py2.py3-none-any.whl/pip/wheel.py", line 346, in move_wheel_files
+    clobber(source, lib_dir, True)
+  File "/var/lib/jenkins/shiningpanda/jobs/18aee27a/pip-0-py2.py3-none-any.whl/pip/wheel.py", line 324, in clobber
+    shutil.copyfile(srcfile, destfile)
+  File "/usr/lib/python2.7/shutil.py", line 84, in copyfile
+    copyfileobj(fsrc, fdst)
+  File "/usr/lib/python2.7/shutil.py", line 52, in copyfileobj
+    fdst.write(buf)
+IOError: [Errno 28] No space left on device
+----------------------------------------
+...Installing setuptools, pip, wheel...done.
+Traceback (most recent call last):
+  File "/var/lib/jenkins/shiningpanda/jobs/18aee27a/virtualenv.py", line 2332, in <module>
+    main()
+  File "/var/lib/jenkins/shiningpanda/jobs/18aee27a/virtualenv.py", line 711, in main
+    symlink=options.symlink)
+  File "/var/lib/jenkins/shiningpanda/jobs/18aee27a/virtualenv.py", line 944, in create_environment
+    download=download,
+  File "/var/lib/jenkins/shiningpanda/jobs/18aee27a/virtualenv.py", line 900, in install_wheel
+    call_subprocess(cmd, show_stdout=False, extra_env=env, stdin=SCRIPT)
+  File "/var/lib/jenkins/shiningpanda/jobs/18aee27a/virtualenv.py", line 795, in call_subprocess
+    % (cmd_desc, proc.returncode))
+OSError: Command /var/lib/jenkins/shi...1d8cd9/bin/python2.7 - setuptools pip wheel failed with error code 2
+Build step 'Virtualenv Builder' marked build as failure
+Finished: FAILURE
