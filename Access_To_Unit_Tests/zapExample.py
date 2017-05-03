@@ -21,7 +21,7 @@ proc = Popen([zap_path,'-port','8090', '-daemon', '-config','api.key=12345','-di
 print 'Waiting for ZAP to load, 10 seconds ...'
 time.sleep(10)
 
-selenium_path = './selenium-server-standalone-3.3.1.jar'
+selenium_path = curr_dir+'/selenium-server-standalone-3.3.1.jar'
 selenium_logfile = logs_dir+'/selenium.log'
 
 print 'Starting Selenium server...'
