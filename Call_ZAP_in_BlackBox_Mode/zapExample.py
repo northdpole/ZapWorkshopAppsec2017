@@ -16,8 +16,7 @@ logs_dir = curr_dir+'/logs'
 zap_logfile = logs_dir + '/zapErrors.log'
 
 print 'Logs dir is '+ logs_dir
-
-proc = Popen([zap_path,'-port','8090', '-daemon', '-config','api.key=12345','-dir','/tmp/'+time.clock()], stdout=open(zap_logfile, 'w+'))
+proc = Popen([zap_path,'-port','8090', '-daemon', '-config','api.key=12345','-dir','/tmp/'+str(time.clock())], stdout=open(zap_logfile, 'w+'))
 print 'Waiting for ZAP to load, 10 seconds ...'
 time.sleep(10)
 
