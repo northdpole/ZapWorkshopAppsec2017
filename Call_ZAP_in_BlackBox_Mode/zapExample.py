@@ -15,6 +15,9 @@ apiKey = '12345'
 logs_dir = curr_dir+'/logs'
 zap_logfile = logs_dir + '/zapErrors.log'
 
+if not os.path.exists(logs_dir):
+    os.mkdir(logs_dir)
+
 print 'Logs dir is '+ logs_dir
 proc = Popen([zap_path,'-port','8090', '-daemon', '-config','api.key=12345','-dir','/tmp/'+str(time.clock())], stdout=open(zap_logfile, 'w+'))
 print 'Waiting for ZAP to load, 10 seconds ...'
@@ -23,7 +26,8 @@ time.sleep(10)
 
 #start a php server running on the url
 php_logfile = logs_dir+'/acces.log'
-server = Popen(['php', '-S', '127.0.0.1:7070'], stdout=open(php_logfile, 'w+'))
+print curr_dir+'/'
+server = Popen(['php', '-S', '127.0.0.1:7070','-t',curr_dir+'/'], stdout=open(php_logfile, 'w+'))
 
 # Here the target is defined and an instance of ZAP is created.Q
 target = 'http://127.0.0.1:7070/app/index.php'
@@ -60,7 +64,7 @@ try:
     scanid = zap.ascan.scan(url=target,recurse=True,inscopeonly=False)
     while (int(zap.ascan.status(scanid)) < 100):
         print 'Scan progress %: ' + zap.ascan.status(scanid)
-        # time.sleep(6)
+        time.sleep(6)
     print 'Scan completed'
 
     # Report the results
@@ -82,7 +86,7 @@ try:
     # pprint(zap.core.alerts())
 except Exception, e:
     print(e)
-    traceback.prifnt_exc()
+    traceback.print_exc()
 finally:
     proc.kill()
     server.kill()
