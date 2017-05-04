@@ -19,7 +19,7 @@ try:
     #set the Xvfb to run on display 10 and export it -- This can be done in Jenkins as well and should be
     print('Starting Xvfb')
     xvfb_logfile=logs_dir+'/xvfb.log'
-    xvfb = Popen(['Xvfb',':10','-ac','-terminate'],stdout=open(xvfb_logfile,'w+'))
+    xvfb = Popen(['Xvfb',':10','-ac','-reset','-terminate'],stdout=open(xvfb_logfile,'w+'))
     os.environ["DISPLAY"]=':10'
     print('Xvfb running on Display :10')
 
