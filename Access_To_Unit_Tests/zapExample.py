@@ -34,19 +34,17 @@ try:
 
     #start the python server
     python_logfile = logs_dir+'/acces.log'
+    print('Starting the server')
     server = Popen(['python',curr_dir+'/app/app.py'], stderr=open(python_logfile, 'w+'))
-
-    tests_logfile = logs_dir+'/pyunit.log'
-    unittests = Popen(['python','-m', 'unittest',curr_dir+'/app/appTest'], stderr=open(tests_logfile, 'w+'))
-
+    time.sleep(5)
 
     # ZAP starts accessing the target.
     print('Accessing target %s' % target)
     zap.urlopen(target)
     time.sleep(2)
+
     print('Proxied Unittests running')
     tests_logfile = logs_dir+'/pyunit.log'
-
     unittests = Popen(['python','-m', 'unittest','discover',curr_dir+'/app','*_test.py'], stderr=open(tests_logfile, 'w+'))
     print ('Waiting for tests to finish')
     unittests.wait()
