@@ -1,5 +1,7 @@
+
 #composer files
-/vendor
+vendor/
+composer.lock
 
 #logs
 logs/*
