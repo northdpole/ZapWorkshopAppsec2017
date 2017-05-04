@@ -1,0 +1,8 @@
+warning: Debugger speedups using cython not found. Run '"/home/test/ZapWorkshopAppsec2017/venv/bin/python" "/home/test/phpstorm/helpers/pydev/setup_cython.py" build_ext --inplace' to build.
+pydev debugger: process 7239 is connecting
+
+....
+----------------------------------------------------------------------
+Ran 4 tests in 5.249s
+
+OK

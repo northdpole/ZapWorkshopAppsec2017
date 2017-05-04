@@ -21,16 +21,17 @@ class fooTest extends TestCase
     public function setup()
     {
         //IT DOESN'T RECOGNISE THE PROXY, NEED TO SETUP CUSTOM PROFILE!
-        $json_proxy = [Remote\WebDriverCapabilityType::PROXY => [
+        $proxy = [
         'proxyType' => 'MANUAL',
         'httpProxy' => $this->proxy,
-        'httpProxyPort' => '8090',
-    ]];
+        'httpProxyPort' => 8090,
+    ];
         $cap = Remote\DesiredCapabilities::firefox();
-        $cap->setCapability(Remote\WebDriverCapabilityType::PROXY,$json_proxy);
+        $cap->setCapability(Remote\WebDriverCapabilityType::PROXY,$proxy);
 
         if (self::$webDriver === null)
-            self::$webDriver = \Facebook\WebDriver\Remote\RemoteWebDriver::create($this->wdUrl, $cap);
+            self::$webDriver = \Facebook\WebDriver\Remote\RemoteWebDriver::create($this->wdUrl, $cap,null,null,null,null,null);
+
     }
 //    public function testEchoesName()//ZAP should flag this as XSS
 //    {
