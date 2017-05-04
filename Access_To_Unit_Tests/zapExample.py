@@ -8,10 +8,13 @@ from subprocess import Popen
 apiKey = '12345'
 curr_dir = (os.path.dirname(os.path.realpath(__file__)))
 logs_dir = curr_dir+'/logs'
+if not os.path.exists(logs_dir):
+    os.mkdir(logs_dir)
 print 'Logs dir is '+ logs_dir
 
 zap_logfile = logs_dir + '/zapErrors.log'
 zap_path = curr_dir+'/../ZAP_2.6.0/zap.sh'
+
 try:
     print('Starting ZAP ...')
     proc = Popen([zap_path,'-port','8090','-daemon','-dir','/tmp/'+str(time.clock()),'-config','api.key=12345'], stdout=open(zap_logfile, 'w+'))
