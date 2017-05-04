@@ -14,8 +14,7 @@ zap_logfile = logs_dir + '/zapErrors.log'
 zap_path = curr_dir+'/../ZAP_2.6.0/zap.sh'
 try:
     print('Starting ZAP ...')
-    # proc = Popen([zap_path,'-port','8090', '-daemon', '-config','api.key=12345','-dir','/tmp/'+str(time.clock())], stdout=open(zap_logfile, 'w+'))
-    proc = Popen([zap_path,'-port','8090','-dir','/tmp/'+str(time.clock()),'-config','api.key=12345'], stdout=open(zap_logfile, 'w+'))
+    proc = Popen([zap_path,'-port','8090','-daemon','-dir','/tmp/'+str(time.clock()),'-config','api.key=12345'], stdout=open(zap_logfile, 'w+'))
 
     print('Waiting for ZAP to load, 10 seconds ...')
     zap = ZAPv2(apikey=apiKey, proxies={'http': 'http://127.0.0.1:8090','https':'http://127.0.0.1:8090'})

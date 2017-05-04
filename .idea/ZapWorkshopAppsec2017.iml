@@ -6,8 +6,9 @@
       <sourceFolder url="file://$MODULE_DIR$/Call_ZAP_in_BlackBox_Mode" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Access_To_Unit_Tests" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Access_To_Unit_Tests/app" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 2.7.12+ virtualenv at ~/ZapWorkshopAppsec2017/venv" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 2.7.12 virtualenv at ~/ZapWorkshopAppsec2017/venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
