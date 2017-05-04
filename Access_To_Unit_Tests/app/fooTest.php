@@ -1,19 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: northpole
- * Date: 29.04.17
- * Time: 14:41
- */
 
 use PHPUnit\Framework\TestCase;
+use \Facebook\WebDriver\Remote;
 
 class fooTest extends TestCase
 {
-    private $proxy = '127.0.0.1:8090';
-    static private $webDriver;
-    private $wdUrl =  'http://localhost:4444/wd/hub';
+    private $proxy = 'http://127.0.0.1';
+    private $proxy_port = '8090';
+    static private $webDriver = null;
+    private $wdUrl = 'http://localhost:4444/wd/hub';
     private $url = 'http://127.0.0.1:7070/app/index.php';
+
 
 //    public function testEchoesName()
 //    {
@@ -23,31 +20,37 @@ class fooTest extends TestCase
 
     public function setup()
     {
-        $capabilities = [\Facebook\WebDriver\Remote\WebDriverCapabilityType::BROWSER_NAME => 'firefox',
-            \Facebook\WebDriver\Remote\WebDriverCapabilityType::PROXY => [
-                'proxyType' => 'manual',
-                'httpProxy' => $this->proxy,
-                'sslProxy' => $this->proxy
-            ],\Facebook\WebDriver\Remote\DesiredCapabilities::firefox()];
-        if(self::$webDriver === null)
-            self::$webDriver = \Facebook\WebDriver\Remote\RemoteWebDriver::create($this->wdUrl,$capabilities);
+        //IT DOESN'T RECOGNISE THE PROXY, NEED TO SETUP CUSTOM PROFILE!
+        $json_proxy = [Remote\WebDriverCapabilityType::PROXY => [
+        'proxyType' => 'MANUAL',
+        'httpProxy' => $this->proxy,
+        'httpProxyPort' => '8090',
+    ]];
+        $cap = Remote\DesiredCapabilities::firefox();
+        $cap->setCapability(Remote\WebDriverCapabilityType::PROXY,$json_proxy);
+
+        if (self::$webDriver === null)
+            self::$webDriver = \Facebook\WebDriver\Remote\RemoteWebDriver::create($this->wdUrl, $cap);
     }
-    public function testEchoesName()//ZAP should flag this as XSS
-    {
-        self::$webDriver->get($this->url."?query=foo");
-        $element = self::$webDriver->findElement(\Facebook\WebDriver\WebDriverBy::id("id_echo"));
-        $this->assertContains('foo',$element->getText());//assert that the page contains foo
-    }
-    public function testEchoesSurname(){//ZAP shouldn't flag this
-        self::$webDriver->get($this->url."?nx=bar");
+//    public function testEchoesName()//ZAP should flag this as XSS
+//    {
+//        self::$webDriver->get($this->url."?query=foo&submit=submit");
+//        $element = self::$webDriver->findElement(\Facebook\WebDriver\WebDriverBy::id("id_echo"));
+//        $this->assertContains('foo',$element->getText());//assert that the page contains foo
+//    }
+    public function testEchoesSurname()
+    {//ZAP shouldn't flag this
+        self::$webDriver->get($this->url . "?nx=bar&submit=submit");
         $element = self::$webDriver->findElement(\Facebook\WebDriver\WebDriverBy::id("id_echo2"));
-        $this->assertContains('bar',$element->getText());//assert that the page contains foo
+        $this->assertContains('bar', $element->getText());//assert that the page contains foo
 
     }
-    public function testHidden(){
-        self::$webDriver->get($this->url."?hidden=foo");
-        $element = self::$webDriver->findElement(\Facebook\WebDriver\WebDriverBy::id("id_echo"));
-        $this->assertContains('foo',$element->getText());//assert that the page contains foo
+
+    public function testHidden()
+    {
+        self::$webDriver->get($this->url . "?hidden=foo&submit=submit");
+        $element = self::$webDriver->findElement(\Facebook\WebDriver\WebDriverBy::id("id_hidden"));
+        $this->assertContains('foo', $element->getText());//assert that the page contains foo
     }
 
 }
