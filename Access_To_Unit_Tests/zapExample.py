@@ -16,6 +16,11 @@ zap_logfile = logs_dir + '/zapErrors.log'
 zap_path = curr_dir+'/../ZAP_2.6.0/zap.sh'
 
 try:
+    #set the Xvfb to run on display 10 and export it -- This can be done in Jenkins as well and should be
+    xvfb_logfile=logs_dir+'/xvfb.log'
+    xvfb = Popen(['Xvfb',':10','-ac'],stdout=open(xvfb_logfile,'w+'))
+    os.environ["DISPLAY"]=':10'
+
     print('Starting ZAP ...')
     proc = Popen([zap_path,'-port','8090','-daemon','-dir','/tmp/'+str(time.clock()),'-config','api.key=12345'], stdout=open(zap_logfile, 'w+'))
 
@@ -102,4 +107,5 @@ finally:
     proc.kill()
     # selenium.kill()
     server.kill()
+    xvfb.kill()
     # unitests.kill()
