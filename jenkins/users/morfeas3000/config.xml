@@ -3,7 +3,7 @@
   <fullName>morfeas3000</fullName>
   <properties>
     <jenkins.security.ApiTokenProperty>
-      <apiToken>{AQAAABAAAAAwVoHoNNJdFESb2u/U+jWwzpydCCbVpPFO+hh1M9Q4QRTwHvRZtqc2k1ViaFLyQezODbZNlxzklTfZtsawDdVzZQ==}</apiToken>
+      <apiToken>{AQAAABAAAAAwhYoibEFRD8fRpmTeBOPFdhpvorxyAKG2rYaW3Xm4gNjiFUZA5HZbPsPFnudIQMtUdhxBVsxgyQZTxiNS7OqqfQ==}</apiToken>
     </jenkins.security.ApiTokenProperty>
     <com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty plugin="credentials@2.1.13">
       <domainCredentialsMap class="hudson.util.CopyOnWriteMap$Hash"/>
