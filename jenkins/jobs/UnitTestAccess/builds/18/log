@@ -1,0 +1,139 @@
+Started by user [8mha:////4AXAOKEU4sHIL1cle21vDkcW+m/6Nj3xeE0Ia0gbgfVxAAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyWEgYu/dLi1CL9ktTiEgCd0uccvwAAAA==[0mtest
+Building in workspace /var/lib/jenkins/workspace/UnitTestAccess
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url file:///home/test/ZapWorkshopAppsec2017/ # timeout=10
+Fetching upstream changes from file:///home/test/ZapWorkshopAppsec2017/
+ > git --version # timeout=10
+ > git fetch --tags --progress file:///home/test/ZapWorkshopAppsec2017/ +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 1b3f07010d9c223e9fed47e16ce050d3a6173d87 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1b3f07010d9c223e9fed47e16ce050d3a6173d87
+ > git rev-list 1b3f07010d9c223e9fed47e16ce050d3a6173d87 # timeout=10
+[UnitTestAccess] $ /bin/sh -xe /tmp/shiningpanda29955271857012818.sh
++ pip install -r requirements.txt
+Requirement already satisfied: appdirs==1.4.3 in /var/lib/jenkins/shiningpanda/jobs/83c4b905/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 1))
+Requirement already satisfied: click==6.7 in /var/lib/jenkins/shiningpanda/jobs/83c4b905/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 2))
+Requirement already satisfied: Flask==0.12.1 in /var/lib/jenkins/shiningpanda/jobs/83c4b905/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 3))
+Requirement already satisfied: itsdangerous==0.24 in /var/lib/jenkins/shiningpanda/jobs/83c4b905/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 4))
+Requirement already satisfied: Jinja2==2.9.6 in /var/lib/jenkins/shiningpanda/jobs/83c4b905/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 5))
+Requirement already satisfied: MarkupSafe==1.0 in /var/lib/jenkins/shiningpanda/jobs/83c4b905/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 6))
+Requirement already satisfied: packaging==16.8 in /var/lib/jenkins/shiningpanda/jobs/83c4b905/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 7))
+Requirement already satisfied: pyparsing==2.2.0 in /var/lib/jenkins/shiningpanda/jobs/83c4b905/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 8))
+Requirement already satisfied: python-owasp-zap-v2.4==0.0.9 in /var/lib/jenkins/shiningpanda/jobs/83c4b905/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 9))
+Requirement already satisfied: requests==2.13.0 in /var/lib/jenkins/shiningpanda/jobs/83c4b905/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 10))
+Requirement already satisfied: selenium==3.4.1 in /var/lib/jenkins/shiningpanda/jobs/83c4b905/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 11))
+Requirement already satisfied: six==1.10.0 in /var/lib/jenkins/shiningpanda/jobs/83c4b905/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 12))
+Requirement already satisfied: Werkzeug==0.12.1 in /var/lib/jenkins/shiningpanda/jobs/83c4b905/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 13))
+[UnitTestAccess] $ /bin/sh -xe /tmp/shiningpanda4899244516722087705.sh
++ python Access_To_Unit_Tests/zapExample.py
+_XSERVTransmkdir: Owner of /tmp/.X11-unix should be set to root
+Logs dir is /var/lib/jenkins/workspace/UnitTestAccess/Access_To_Unit_Tests/logs
+Starting Xvfb
+Xvfb running on Display :10
+Starting ZAP ...
+Waiting for ZAP to load, 10 seconds ...
+Starting the server
+Accessing target http://127.0.0.1:7070/
+Proxied Unittests running
+Waiting for tests to finish
+Spidering target http://127.0.0.1:7070/
+Status 100
+Spider completed
+Scanning target http://127.0.0.1:7070/
+Scan progress %: 0
+Scan progress %: 27
+Scan progress %: 50
+Scan completed
+Hosts: 127.0.0.1, code.jquery.com, netdna.bootstrapcdn.com
+Alerts: 
+u"Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server"
+u'X-XSS-Protection'
+u"The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing."
+u'X-Content-Type-Options'
+u"X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks."
+u'X-Frame-Options'
+u'The page includes one or more script files from a third-party domain.'
+u'http://code.jquery.com/jquery-1.11.0.min.js'
+u'The page includes one or more script files from a third-party domain.'
+u'http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'
+u"Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server"
+u'X-XSS-Protection'
+u"The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing."
+u'X-Content-Type-Options'
+u"X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks."
+u'X-Frame-Options'
+u"The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing."
+u'X-Content-Type-Options'
+u"The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing."
+u'X-Content-Type-Options'
+u"The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing."
+u'X-Content-Type-Options'
+u'The page includes one or more script files from a third-party domain.'
+u'http://code.jquery.com/jquery-1.11.0.min.js'
+u'The page includes one or more script files from a third-party domain.'
+u'http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'
+u"Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server"
+u'X-XSS-Protection'
+u"The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing."
+u'X-Content-Type-Options'
+u"X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks."
+u'X-Frame-Options'
+u'The page includes one or more script files from a third-party domain.'
+u'http://code.jquery.com/jquery-1.11.0.min.js'
+u'The page includes one or more script files from a third-party domain.'
+u'http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'
+u"Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server"
+u'X-XSS-Protection'
+u"The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing."
+u'X-Content-Type-Options'
+u"X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks."
+u'X-Frame-Options'
+u"Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server"
+u'X-XSS-Protection'
+u"Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server"
+u'X-XSS-Protection'
+u'The page includes one or more script files from a third-party domain.'
+u'http://code.jquery.com/jquery-1.11.0.min.js'
+u'The page includes one or more script files from a third-party domain.'
+u'http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'
+u"Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server"
+u'X-XSS-Protection'
+u"The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing."
+u'X-Content-Type-Options'
+u"X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks."
+u'X-Frame-Options'
+u'The page includes one or more script files from a third-party domain.'
+u'http://code.jquery.com/jquery-1.11.0.min.js'
+u'The page includes one or more script files from a third-party domain.'
+u'http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'
+u"Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server"
+u'X-XSS-Protection'
+u"The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing."
+u'X-Content-Type-Options'
+u"X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks."
+u'X-Frame-Options'
+u'The page includes one or more script files from a third-party domain.'
+u'http://code.jquery.com/jquery-1.11.0.min.js'
+u'The page includes one or more script files from a third-party domain.'
+u'http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'
+u"Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server"
+u'X-XSS-Protection'
+u"The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing."
+u'X-Content-Type-Options'
+u"X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks."
+u'X-Frame-Options'
+u"Cross-site Scripting (XSS) is an attack technique that involves echoing attacker-supplied code into a user's browser instance. A browser instance can be a standard web browser client, or a browser object embedded in a software product such as the browser within WinAmp, an RSS reader, or an email client. The code itself is usually written in HTML/JavaScript, but may also extend to VBScript, ActiveX, Java, Flash, or any other browser-supported technology.\nWhen an attacker gets a user's browser to execute his/her code, the code will run within the security context (or zone) of the hosting web site. With this level of privilege, the code has the ability to read, modify and transmit any sensitive data accessible by the browser. A Cross-site Scripted user could have his/her account hijacked (cookie theft), their browser redirected to another location, or possibly shown fraudulent content delivered by the web site they are visiting. Cross-site Scripting attacks essentially compromise the trust relationship between a user and the web site. Applications utilizing browser object instances which load content from the file system may execute code under the local machine zone allowing for system compromise.\n\nThere are three types of Cross-site Scripting attacks: non-persistent, persistent and DOM-based.\nNon-persistent attacks and DOM-based attacks require a user to either visit a specially crafted link laced with malicious code, or visit a malicious web page containing a web form, which when posted to the vulnerable site, will mount the attack. Using a malicious form will oftentimes take place when the vulnerable resource only accepts HTTP POST requests. In such a case, the form can be submitted automatically, without the victim's knowledge (e.g. by using JavaScript). Upon clicking on the malicious link or submitting the malicious form, the XSS payload will get echoed back and will get interpreted by the user's browser and execute. Another technique to send almost arbitrary requests (GET and POST) is by using an embedded client, such as Adobe Flash.\nPersistent attacks occur when the malicious code is submitted to a web site where it's stored for a period of time. Examples of an attacker's favorite targets often include message board posts, web mail messages, and web chat software. The unsuspecting user is not required to interact with any additional site/link (e.g. an attacker site or a malicious link sent via email), just simply view the web page containing the code."
+u'hidden'
+u"Cross-site Scripting (XSS) is an attack technique that involves echoing attacker-supplied code into a user's browser instance. A browser instance can be a standard web browser client, or a browser object embedded in a software product such as the browser within WinAmp, an RSS reader, or an email client. The code itself is usually written in HTML/JavaScript, but may also extend to VBScript, ActiveX, Java, Flash, or any other browser-supported technology.\nWhen an attacker gets a user's browser to execute his/her code, the code will run within the security context (or zone) of the hosting web site. With this level of privilege, the code has the ability to read, modify and transmit any sensitive data accessible by the browser. A Cross-site Scripted user could have his/her account hijacked (cookie theft), their browser redirected to another location, or possibly shown fraudulent content delivered by the web site they are visiting. Cross-site Scripting attacks essentially compromise the trust relationship between a user and the web site. Applications utilizing browser object instances which load content from the file system may execute code under the local machine zone allowing for system compromise.\n\nThere are three types of Cross-site Scripting attacks: non-persistent, persistent and DOM-based.\nNon-persistent attacks and DOM-based attacks require a user to either visit a specially crafted link laced with malicious code, or visit a malicious web page containing a web form, which when posted to the vulnerable site, will mount the attack. Using a malicious form will oftentimes take place when the vulnerable resource only accepts HTTP POST requests. In such a case, the form can be submitted automatically, without the victim's knowledge (e.g. by using JavaScript). Upon clicking on the malicious link or submitting the malicious form, the XSS payload will get echoed back and will get interpreted by the user's browser and execute. Another technique to send almost arbitrary requests (GET and POST) is by using an embedded client, such as Adobe Flash.\nPersistent attacks occur when the malicious code is submitted to a web site where it's stored for a period of time. Examples of an attacker's favorite targets often include message board posts, web mail messages, and web chat software. The unsuspecting user is not required to interact with any additional site/link (e.g. an attacker site or a malicious link sent via email), just simply view the web page containing the code."
+u'hidden'
+u"Cross-site Scripting (XSS) is an attack technique that involves echoing attacker-supplied code into a user's browser instance. A browser instance can be a standard web browser client, or a browser object embedded in a software product such as the browser within WinAmp, an RSS reader, or an email client. The code itself is usually written in HTML/JavaScript, but may also extend to VBScript, ActiveX, Java, Flash, or any other browser-supported technology.\nWhen an attacker gets a user's browser to execute his/her code, the code will run within the security context (or zone) of the hosting web site. With this level of privilege, the code has the ability to read, modify and transmit any sensitive data accessible by the browser. A Cross-site Scripted user could have his/her account hijacked (cookie theft), their browser redirected to another location, or possibly shown fraudulent content delivered by the web site they are visiting. Cross-site Scripting attacks essentially compromise the trust relationship between a user and the web site. Applications utilizing browser object instances which load content from the file system may execute code under the local machine zone allowing for system compromise.\n\nThere are three types of Cross-site Scripting attacks: non-persistent, persistent and DOM-based.\nNon-persistent attacks and DOM-based attacks require a user to either visit a specially crafted link laced with malicious code, or visit a malicious web page containing a web form, which when posted to the vulnerable site, will mount the attack. Using a malicious form will oftentimes take place when the vulnerable resource only accepts HTTP POST requests. In such a case, the form can be submitted automatically, without the victim's knowledge (e.g. by using JavaScript). Upon clicking on the malicious link or submitting the malicious form, the XSS payload will get echoed back and will get interpreted by the user's browser and execute. Another technique to send almost arbitrary requests (GET and POST) is by using an embedded client, such as Adobe Flash.\nPersistent attacks occur when the malicious code is submitted to a web site where it's stored for a period of time. Examples of an attacker's favorite targets often include message board posts, web mail messages, and web chat software. The unsuspecting user is not required to interact with any additional site/link (e.g. an attacker site or a malicious link sent via email), just simply view the web page containing the code."
+u'query'
+u"Cross-site Scripting (XSS) is an attack technique that involves echoing attacker-supplied code into a user's browser instance. A browser instance can be a standard web browser client, or a browser object embedded in a software product such as the browser within WinAmp, an RSS reader, or an email client. The code itself is usually written in HTML/JavaScript, but may also extend to VBScript, ActiveX, Java, Flash, or any other browser-supported technology.\nWhen an attacker gets a user's browser to execute his/her code, the code will run within the security context (or zone) of the hosting web site. With this level of privilege, the code has the ability to read, modify and transmit any sensitive data accessible by the browser. A Cross-site Scripted user could have his/her account hijacked (cookie theft), their browser redirected to another location, or possibly shown fraudulent content delivered by the web site they are visiting. Cross-site Scripting attacks essentially compromise the trust relationship between a user and the web site. Applications utilizing browser object instances which load content from the file system may execute code under the local machine zone allowing for system compromise.\n\nThere are three types of Cross-site Scripting attacks: non-persistent, persistent and DOM-based.\nNon-persistent attacks and DOM-based attacks require a user to either visit a specially crafted link laced with malicious code, or visit a malicious web page containing a web form, which when posted to the vulnerable site, will mount the attack. Using a malicious form will oftentimes take place when the vulnerable resource only accepts HTTP POST requests. In such a case, the form can be submitted automatically, without the victim's knowledge (e.g. by using JavaScript). Upon clicking on the malicious link or submitting the malicious form, the XSS payload will get echoed back and will get interpreted by the user's browser and execute. Another technique to send almost arbitrary requests (GET and POST) is by using an embedded client, such as Adobe Flash.\nPersistent attacks occur when the malicious code is submitted to a web site where it's stored for a period of time. Examples of an attacker's favorite targets often include message board posts, web mail messages, and web chat software. The unsuspecting user is not required to interact with any additional site/link (e.g. an attacker site or a malicious link sent via email), just simply view the web page containing the code."
+u'query'
+u"Cross-site Scripting (XSS) is an attack technique that involves echoing attacker-supplied code into a user's browser instance. A browser instance can be a standard web browser client, or a browser object embedded in a software product such as the browser within WinAmp, an RSS reader, or an email client. The code itself is usually written in HTML/JavaScript, but may also extend to VBScript, ActiveX, Java, Flash, or any other browser-supported technology.\nWhen an attacker gets a user's browser to execute his/her code, the code will run within the security context (or zone) of the hosting web site. With this level of privilege, the code has the ability to read, modify and transmit any sensitive data accessible by the browser. A Cross-site Scripted user could have his/her account hijacked (cookie theft), their browser redirected to another location, or possibly shown fraudulent content delivered by the web site they are visiting. Cross-site Scripting attacks essentially compromise the trust relationship between a user and the web site. Applications utilizing browser object instances which load content from the file system may execute code under the local machine zone allowing for system compromise.\n\nThere are three types of Cross-site Scripting attacks: non-persistent, persistent and DOM-based.\nNon-persistent attacks and DOM-based attacks require a user to either visit a specially crafted link laced with malicious code, or visit a malicious web page containing a web form, which when posted to the vulnerable site, will mount the attack. Using a malicious form will oftentimes take place when the vulnerable resource only accepts HTTP POST requests. In such a case, the form can be submitted automatically, without the victim's knowledge (e.g. by using JavaScript). Upon clicking on the malicious link or submitting the malicious form, the XSS payload will get echoed back and will get interpreted by the user's browser and execute. Another technique to send almost arbitrary requests (GET and POST) is by using an embedded client, such as Adobe Flash.\nPersistent attacks occur when the malicious code is submitted to a web site where it's stored for a period of time. Examples of an attacker's favorite targets often include message board posts, web mail messages, and web chat software. The unsuspecting user is not required to interact with any additional site/link (e.g. an attacker site or a malicious link sent via email), just simply view the web page containing the code."
+u'query'
+Process leaked file descriptors. See http://wiki.jenkins-ci.org/display/JENKINS/Spawning+processes+from+build for more information
+Finished: SUCCESS
