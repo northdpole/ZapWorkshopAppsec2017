@@ -1,0 +1,6 @@
+Scenario:
+
+Angular transports POST requests with a content-type of application/json
+(for reference, POST is usually form/url-encoded)
+
+Some server-side languages have issues with that --notably PHP
