@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<org.jenkinsci.plugins.zap.ZAPBuilder_-ZAPBuilderDescriptorImpl plugin="zap@1.0.8">
-  <zapDefaultHost>localhost</zapDefaultHost>
-  <zapDefaultPort>8090</zapDefaultPort>
-  <jiraBaseURL></jiraBaseURL>
-  <jiraUsername></jiraUsername>
-  <jiraPassword></jiraPassword>
-</org.jenkinsci.plugins.zap.ZAPBuilder_-ZAPBuilderDescriptorImpl>
