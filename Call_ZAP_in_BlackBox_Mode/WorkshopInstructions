@@ -1,0 +1,33 @@
+
+docker pull jenkins
+docker run -p 8080:8080 -p 50000:50000 jenkins
+browser: localhost:8080
+install suggested plugins
+sleep
+
+create admin user
+new job
+pipeline project
+script:
+node {
+   echo 'Hello World'
+   bat "python run-selenium.py"
+   bat "python run-zap.py"
+}
+
+install python-pip
+pip install virtual env
+activate
+pip install python-owasp-zap
+use script #1, it will spider, attack and provide filtered alerts for the target
+
+for jenkins to use the script:
+
+1. Create a new 'Build a free-style software project' in Jenkins.
+2. Add a new build step to project and select 'execute shell'.
+3. Define the path to the python script. For example python /$USER/Desktop/noTests.py.
+
+Install the text-finder plugin and add the following regular expression
+
+.*(?i)high.*|.*(?i)medium.*
+

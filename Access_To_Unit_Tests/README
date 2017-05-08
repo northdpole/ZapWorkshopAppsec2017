@@ -1,0 +1,11 @@
+Validate that the vulnerabilities work http://localhost:8000/Access_To_Unit_Tests/sqli_xss.php?x=%3Cimg/src=%22%22/onerror=alert(1)%3E
+
+
+After the functional tests are finished kick off the Groovy script to Active Scan URLs found by ZAP. 
+
+BOnus:
+override false positives:  https://github.com/zaproxy/zap-extensions/wiki/HelpAddonsAlertFiltersAlertFilter
+This add-on creates a new endpoint which is accessible through ZAPs REST API. Thus it can be used through scripting to set false positives before a scan starts! 
+
+For more info: https://www.securify.nl/blog/SFY20161101/handling_false_positives_in_automated_security_testing.html
+

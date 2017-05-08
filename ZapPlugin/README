@@ -1,0 +1,23 @@
+Scenario:
+
+Angular transports POST requests with a content-type of application/json
+(for reference, POST is usually form/url-encoded)
+
+Some server-side languages have issues with that --notably PHP
+
+
+Instructions:
+cd to this folder
+php -S localhost:8081
+open firefox
+browse to localhost:8081
+insert <img src=x onerror=alert(1)//"> as a username and any password
+press Login
+enjoy the popup
+
+
+Open Zap
+Configure Zap to run on port 8090
+Proxy firefox through zap
+Set zap to intercept all requests
+
