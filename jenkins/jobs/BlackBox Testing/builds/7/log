@@ -1,0 +1,208 @@
+Started by user [8mha:////4AXAOKEU4sHIL1cle21vDkcW+m/6Nj3xeE0Ia0gbgfVxAAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyWEgYu/dLi1CL9ktTiEgCd0uccvwAAAA==[0mtest
+Building in workspace /var/lib/jenkins/workspace/BlackBox Testing
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url file:///home/test/ZapWorkshopAppsec2017/ # timeout=10
+Fetching upstream changes from file:///home/test/ZapWorkshopAppsec2017/
+ > git --version # timeout=10
+ > git fetch --tags --progress file:///home/test/ZapWorkshopAppsec2017/ +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 4ff342c014715e3c3d326ab3a8b85f6a01f3c0ca (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 4ff342c014715e3c3d326ab3a8b85f6a01f3c0ca
+ > git rev-list 816d66969df01e8c5e07461d198bc44b265e380e # timeout=10
+[BlackBox Testing] $ /bin/sh -xe /tmp/shiningpanda6721477463016252175.sh
++ pip install -r requirements.txt
+Requirement already satisfied: appdirs==1.4.3 in /var/lib/jenkins/shiningpanda/jobs/44d31e7f/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 1))
+Requirement already satisfied: packaging==16.8 in /var/lib/jenkins/shiningpanda/jobs/44d31e7f/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 2))
+Requirement already satisfied: pyparsing==2.2.0 in /var/lib/jenkins/shiningpanda/jobs/44d31e7f/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 3))
+Requirement already satisfied: python-owasp-zap-v2.4==0.0.9 in /var/lib/jenkins/shiningpanda/jobs/44d31e7f/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 4))
+Requirement already satisfied: requests==2.13.0 in /var/lib/jenkins/shiningpanda/jobs/44d31e7f/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 5))
+Requirement already satisfied: six==1.10.0 in /var/lib/jenkins/shiningpanda/jobs/44d31e7f/virtualenvs/d41d8cd9/lib/python2.7/site-packages (from -r requirements.txt (line 6))
+[BlackBox Testing] $ /bin/sh -xe /tmp/shiningpanda1132924284197374875.sh
++ python Call_ZAP_in_BlackBox_Mode/zapExample.py
+[Thu May  4 21:06:18 2017] 127.0.0.1:38978 [200]: /app/index.php
+[Thu May  4 21:06:20 2017] 127.0.0.1:39271 [404]: /robots.txt - No such file or directory
+[Thu May  4 21:06:20 2017] 127.0.0.1:55915 [200]: /app/index.php
+[Thu May  4 21:06:20 2017] 127.0.0.1:56413 [404]: /sitemap.xml - No such file or directory
+[Thu May  4 21:06:20 2017] 127.0.0.1:37983 [200]: /app/index.php?x=a
+[Thu May  4 21:06:20 2017] 127.0.0.1:47865 [200]: /app/index.php?query=ZAP&submit=submit&x=a
+[Thu May  4 21:06:20 2017] 127.0.0.1:60816 [200]: /app/index.php?query=ZAP&submit=submit
+[Thu May  4 21:06:27 2017] 127.0.0.1:50063 [200]: /app/index.php?query=c%3A%2FWindows%2Fsystem.ini
+[Thu May  4 21:06:27 2017] 127.0.0.1:47347 [200]: /app/index.php?query=c%3A%5CWindows%5Csystem.ini
+[Thu May  4 21:06:27 2017] 127.0.0.1:54844 [200]: /app/index.php?query=..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2FWindows%2Fsystem.ini
+[Thu May  4 21:06:27 2017] 127.0.0.1:60785 [200]: /app/index.php?query=..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5CWindows%5Csystem.ini
+[Thu May  4 21:06:27 2017] 127.0.0.1:46155 [200]: /app/index.php?query=%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2FWindows%2Fsystem.ini
+[Thu May  4 21:06:27 2017] 127.0.0.1:48193 [200]: /app/index.php?query=%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5C..%5CWindows%5Csystem.ini
+[Thu May  4 21:06:27 2017] 127.0.0.1:50518 [200]: /app/index.php?query=Windows%2Fsystem.ini
+[Thu May  4 21:06:27 2017] 127.0.0.1:52101 [200]: /app/index.php?query=Windows%5Csystem.ini
+[Thu May  4 21:06:27 2017] 127.0.0.1:50455 [200]: /app/index.php?query=%2Fetc%2Fpasswd
+[Thu May  4 21:06:27 2017] 127.0.0.1:51323 [200]: /app/index.php?query=..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd
+[Thu May  4 21:06:27 2017] 127.0.0.1:39804 [200]: /app/index.php?query=%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd
+[Thu May  4 21:06:27 2017] 127.0.0.1:37656 [200]: /app/index.php?query=etc%2Fpasswd
+[Thu May  4 21:06:27 2017] 127.0.0.1:39229 [200]: /app/index.php?query=WEB-INF%2Fweb.xml
+[Thu May  4 21:06:27 2017] 127.0.0.1:58257 [200]: /app/index.php?query=WEB-INF%5Cweb.xml
+[Thu May  4 21:06:27 2017] 127.0.0.1:52405 [200]: /app/index.php?query=%2FWEB-INF%2Fweb.xml
+[Thu May  4 21:06:27 2017] 127.0.0.1:44071 [200]: /app/index.php?query=%5CWEB-INF%5Cweb.xml
+[Thu May  4 21:06:27 2017] 127.0.0.1:35647 [200]: /app/index.php?query=..%2FWEB-INF%2Fweb.xml
+[Thu May  4 21:06:27 2017] 127.0.0.1:59621 [200]: /app/index.php?query=..%5CWEB-INF%5Cweb.xml
+[Thu May  4 21:06:27 2017] 127.0.0.1:36424 [200]: /app/index.php?query=%2F..%2FWEB-INF%2Fweb.xml
+[Thu May  4 21:06:27 2017] 127.0.0.1:35072 [200]: /app/index.php?query=%5C..%5CWEB-INF%5Cweb.xml
+[Thu May  4 21:06:27 2017] 127.0.0.1:51486 [200]: /app/index.php?query=..%2F..%2FWEB-INF%2Fweb.xml
+[Thu May  4 21:06:27 2017] 127.0.0.1:52549 [200]: /app/index.php?query=..%5C..%5CWEB-INF%5Cweb.xml
+[Thu May  4 21:06:27 2017] 127.0.0.1:50750 [200]: /app/index.php?query=%2F..%2F..%2FWEB-INF%2Fweb.xml
+[Thu May  4 21:06:27 2017] 127.0.0.1:39644 [200]: /app/index.php?query=%5C..%5C..%5CWEB-INF%5Cweb.xml
+[Thu May  4 21:06:28 2017] 127.0.0.1:59673 [200]: /app/index.php?query=thishouldnotexistandhopefullyitwillnot
+[Thu May  4 21:06:28 2017] 127.0.0.1:39572 [200]: /app/index.php?query=http%3A%2F%2Fwww.google.com%2F
+[Thu May  4 21:06:28 2017] 127.0.0.1:33160 [200]: /app/index.php?query=http%3A%2F%2Fwww.google.com%3A80%2F
+[Thu May  4 21:06:28 2017] 127.0.0.1:45277 [200]: /app/index.php?query=http%3A%2F%2Fwww.google.com
+[Thu May  4 21:06:28 2017] 127.0.0.1:39424 [200]: /app/index.php?query=http%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3DOWASP%2520ZAP
+[Thu May  4 21:06:28 2017] 127.0.0.1:60703 [200]: /app/index.php?query=http%3A%2F%2Fwww.google.com%3A80%2Fsearch%3Fq%3DOWASP%2520ZAP
+[Thu May  4 21:06:28 2017] 127.0.0.1:43192 [200]: /app/index.php?query=www.google.com%2F
+[Thu May  4 21:06:28 2017] 127.0.0.1:38900 [200]: /app/index.php?query=www.google.com%3A80%2F
+[Thu May  4 21:06:28 2017] 127.0.0.1:49721 [200]: /app/index.php?query=www.google.com
+[Thu May  4 21:06:28 2017] 127.0.0.1:58161 [200]: /app/index.php?query=www.google.com%2Fsearch%3Fq%3DOWASP%2520ZAP
+[Thu May  4 21:06:28 2017] 127.0.0.1:34776 [200]: /app/index.php?query=www.google.com%3A80%2Fsearch%3Fq%3DOWASP%2520ZAP
+[Thu May  4 21:06:28 2017] 127.0.0.1:45423 [200]: /app/index.php?query=%3C%21--%23EXEC+cmd%3D%22ls+%2F%22--%3E
+[Thu May  4 21:06:28 2017] 127.0.0.1:46531 [200]: /app/index.php?query=%22%3E%3C%21--%23EXEC+cmd%3D%22ls+%2F%22--%3E%3C
+[Thu May  4 21:06:28 2017] 127.0.0.1:48970 [200]: /app/index.php?query=%3C%21--%23EXEC+cmd%3D%22dir+%5C%22--%3E
+[Thu May  4 21:06:28 2017] 127.0.0.1:57738 [200]: /app/index.php?query=%22%3E%3C%21--%23EXEC+cmd%3D%22dir+%5C%22--%3E%3C
+[Thu May  4 21:06:28 2017] 127.0.0.1:60253 [200]: /app/index.php?query=0W45pz4p
+[Thu May  4 21:06:28 2017] 127.0.0.1:53163 [200]: /app/index.php?query=%3C%2Fdiv%3E%3Cscript%3Ealert%281%29%3B%3C%2Fscript%3E%3Cdiv%3E
+[Thu May  4 21:06:28 2017] 127.0.0.1:36870 [200]: /app/index.php?query=%27
+[Thu May  4 21:06:28 2017] 127.0.0.1:50342 [200]: /app/index.php?query=query%27
+[Thu May  4 21:06:28 2017] 127.0.0.1:53810 [200]: /app/index.php?query=%22
+[Thu May  4 21:06:28 2017] 127.0.0.1:45359 [200]: /app/index.php?query=query%22
+[Thu May  4 21:06:28 2017] 127.0.0.1:59727 [200]: /app/index.php?query=%3B
+[Thu May  4 21:06:28 2017] 127.0.0.1:53008 [200]: /app/index.php?query=query%3B
+[Thu May  4 21:06:28 2017] 127.0.0.1:45559 [200]: /app/index.php?query=%29
+[Thu May  4 21:06:28 2017] 127.0.0.1:49380 [200]: /app/index.php?query=query%29
+[Thu May  4 21:06:28 2017] 127.0.0.1:55544 [200]: /app/index.php
+[Thu May  4 21:06:28 2017] 127.0.0.1:60101 [200]: /app/index.php
+[Thu May  4 21:06:28 2017] 127.0.0.1:44477 [200]: /app/index.php?query=query+AND+1%3D1+--+
+[Thu May  4 21:06:28 2017] 127.0.0.1:37219 [200]: /app/index.php?query=query%27+AND+%271%27%3D%271%27+--+
+[Thu May  4 21:06:28 2017] 127.0.0.1:58117 [200]: /app/index.php?query=query%22+AND+%221%22%3D%221%22+--+
+[Thu May  4 21:06:28 2017] 127.0.0.1:60960 [200]: /app/index.php?query=query+AND+1%3D1
+[Thu May  4 21:06:28 2017] 127.0.0.1:46318 [200]: /app/index.php?query=query%27+AND+%271%27%3D%271
+[Thu May  4 21:06:28 2017] 127.0.0.1:45977 [200]: /app/index.php?query=query%22+AND+%221%22%3D%221
+[Thu May  4 21:06:28 2017] 127.0.0.1:38089 [200]: /app/index.php?query=query+UNION+ALL+select+NULL+--+
+[Thu May  4 21:06:28 2017] 127.0.0.1:52185 [200]: /app/index.php?query=query%27+UNION+ALL+select+NULL+--+
+[Thu May  4 21:06:28 2017] 127.0.0.1:59761 [200]: /app/index.php?query=query%22+UNION+ALL+select+NULL+--+
+[Thu May  4 21:06:28 2017] 127.0.0.1:44281 [200]: /app/index.php?query=query%29+UNION+ALL+select+NULL+--+
+[Thu May  4 21:06:28 2017] 127.0.0.1:54969 [200]: /app/index.php?query=query%27%29+UNION+ALL+select+NULL+--+
+[Thu May  4 21:06:28 2017] 127.0.0.1:38896 [200]: /app/index.php
+[Thu May  4 21:06:28 2017] 127.0.0.1:45818 [200]: /app/index.php?query=%22%3Bprint%28chr%28122%29.chr%2897%29.chr%28112%29.chr%2895%29.chr%28116%29.chr%28111%29.chr%28107%29.chr%28101%29.chr%28110%29%29%3B%24var%3D%22
+[Thu May  4 21:06:28 2017] 127.0.0.1:43114 [200]: /app/index.php?query=%27%3Bprint%28chr%28122%29.chr%2897%29.chr%28112%29.chr%2895%29.chr%28116%29.chr%28111%29.chr%28107%29.chr%28101%29.chr%28110%29%29%3B%24var%3D%27
+[Thu May  4 21:06:28 2017] 127.0.0.1:45968 [200]: /app/index.php?query=%24%7B%40print%28chr%28122%29.chr%2897%29.chr%28112%29.chr%2895%29.chr%28116%29.chr%28111%29.chr%28107%29.chr%28101%29.chr%28110%29%29%7D
+[Thu May  4 21:06:28 2017] 127.0.0.1:33311 [200]: /app/index.php?query=%24%7B%40print%28chr%28122%29.chr%2897%29.chr%28112%29.chr%2895%29.chr%28116%29.chr%28111%29.chr%28107%29.chr%28101%29.chr%28110%29%29%7D%5C
+[Thu May  4 21:06:28 2017] 127.0.0.1:55422 [200]: /app/index.php?query=%3Bprint%28chr%28122%29.chr%2897%29.chr%28112%29.chr%2895%29.chr%28116%29.chr%28111%29.chr%28107%29.chr%28101%29.chr%28110%29%29%3B
+[Thu May  4 21:06:28 2017] 127.0.0.1:38620 [200]: /app/index.php?query=%22%2Bresponse.write%28%5B100%2C000*100%2C000%29%2B%22
+[Thu May  4 21:06:28 2017] 127.0.0.1:52570 [200]: /app/index.php?query=%2Bresponse.write%28%7B0%7D*%7B1%7D%29%2B
+[Thu May  4 21:06:28 2017] 127.0.0.1:51649 [200]: /app/index.php?query=response.write%28100%2C000*100%2C000%29
+[Thu May  4 21:06:28 2017] 127.0.0.1:41544 [200]: /app/index.php?query=query%26cat+%2Fetc%2Fpasswd%26
+[Thu May  4 21:06:28 2017] 127.0.0.1:50744 [200]: /app/index.php?query=query%3Bcat+%2Fetc%2Fpasswd%3B
+[Thu May  4 21:06:28 2017] 127.0.0.1:49787 [200]: /app/index.php?query=query%22%26cat+%2Fetc%2Fpasswd%26%22
+[Thu May  4 21:06:28 2017] 127.0.0.1:40794 [200]: /app/index.php?query=query%22%3Bcat+%2Fetc%2Fpasswd%3B%22
+[Thu May  4 21:06:28 2017] 127.0.0.1:52578 [200]: /app/index.php?query=query%27%26cat+%2Fetc%2Fpasswd%26%27
+[Thu May  4 21:06:28 2017] 127.0.0.1:59085 [200]: /app/index.php?query=query%27%3Bcat+%2Fetc%2Fpasswd%3B%27
+[Thu May  4 21:06:28 2017] 127.0.0.1:45632 [200]: /app/index.php?query=query%26sleep+15%26
+[Thu May  4 21:06:28 2017] 127.0.0.1:53203 [200]: /app/index.php?query=query%3Bsleep+15%3B
+[Thu May  4 21:06:28 2017] 127.0.0.1:39806 [200]: /app/index.php?query=query%22%26sleep+15%26%22
+[Thu May  4 21:06:28 2017] 127.0.0.1:37315 [200]: /app/index.php?query=query%22%3Bsleep+15%3B%22
+[Thu May  4 21:06:28 2017] 127.0.0.1:37923 [200]: /app/index.php?query=query%26sleep+%7B0%7D%26
+[Thu May  4 21:06:28 2017] 127.0.0.1:42523 [200]: /app/index.php?query=query%3Bsleep+%7B0%7D%3B
+[Thu May  4 21:06:28 2017] 127.0.0.1:54036 [200]: /app/index.php?query=query%26type+%25SYSTEMROOT%25%5Cwin.ini
+[Thu May  4 21:06:28 2017] 127.0.0.1:52337 [200]: /app/index.php?query=query%7Ctype+%25SYSTEMROOT%25%5Cwin.ini
+[Thu May  4 21:06:28 2017] 127.0.0.1:40199 [200]: /app/index.php?query=query%22%26type+%25SYSTEMROOT%25%5Cwin.ini%26%22
+[Thu May  4 21:06:28 2017] 127.0.0.1:38718 [200]: /app/index.php?query=query%22%7Ctype+%25SYSTEMROOT%25%5Cwin.ini
+[Thu May  4 21:06:28 2017] 127.0.0.1:39735 [200]: /app/index.php?query=query%27%26type+%25SYSTEMROOT%25%5Cwin.ini%26%27
+[Thu May  4 21:06:28 2017] 127.0.0.1:55477 [200]: /app/index.php?query=query%27%7Ctype+%25SYSTEMROOT%25%5Cwin.ini
+[Thu May  4 21:06:28 2017] 127.0.0.1:43084 [200]: /app/index.php?query=query%26timeout+%2FT+15
+[Thu May  4 21:06:28 2017] 127.0.0.1:51026 [200]: /app/index.php?query=query%7Ctimeout+%2FT+15
+[Thu May  4 21:06:28 2017] 127.0.0.1:33858 [200]: /app/index.php?query=query%22%26timeout+%2FT+15%26%22
+[Thu May  4 21:06:28 2017] 127.0.0.1:54041 [200]: /app/index.php?query=query%22%7Ctimeout+%2FT+15
+[Thu May  4 21:06:28 2017] 127.0.0.1:44947 [200]: /app/index.php?query=query%26timeout+%2FT+%7B0%7D%26
+[Thu May  4 21:06:28 2017] 127.0.0.1:53619 [200]: /app/index.php?query=query%7Ctimeout+%2FT+%7B0%7D
+[Thu May  4 21:06:28 2017] 127.0.0.1:43920 [200]: /app/index.php?query=query%3Bget-help
+[Thu May  4 21:06:28 2017] 127.0.0.1:40292 [200]: /app/index.php?query=query%22%3Bget-help
+[Thu May  4 21:06:28 2017] 127.0.0.1:48901 [200]: /app/index.php?query=query%27%3Bget-help
+[Thu May  4 21:06:28 2017] 127.0.0.1:53388 [200]: /app/index.php?query=query%3Bget-help+%23
+[Thu May  4 21:06:28 2017] 127.0.0.1:46655 [200]: /app/index.php?query=query%3Bstart-sleep+-s+15
+[Thu May  4 21:06:28 2017] 127.0.0.1:47735 [200]: /app/index.php?query=query%22%3Bstart-sleep+-s+15
+[Thu May  4 21:06:28 2017] 127.0.0.1:57502 [200]: /app/index.php?query=query%3Bstart-sleep+-s+%7B0%7D
+[Thu May  4 21:06:28 2017] 127.0.0.1:50915 [200]: /app/index.php?query=query%3Bstart-sleep+-s+15+%23
+[Thu May  4 21:06:28 2017] 127.0.0.1:38869 [200]: /app/index.php/
+[Thu May  4 21:06:28 2017] 127.0.0.1:41053 [200]: /app/index.php?query=856177768656450354.owasp.org
+[Thu May  4 21:06:28 2017] 127.0.0.1:59111 [200]: /app/index.php?query=http%3A%2F%2F856177768656450354.owasp.org
+[Thu May  4 21:06:28 2017] 127.0.0.1:56225 [200]: /app/index.php?query=https%3A%2F%2F856177768656450354.owasp.org
+[Thu May  4 21:06:28 2017] 127.0.0.1:39870 [200]: /app/index.php?query=http%3A%5C%5C856177768656450354.owasp.org
+[Thu May  4 21:06:28 2017] 127.0.0.1:33197 [200]: /app/index.php?query=https%3A%5C%5C856177768656450354.owasp.org
+[Thu May  4 21:06:28 2017] 127.0.0.1:41819 [200]: /app/index.php?query=%2F%2F856177768656450354.owasp.org
+[Thu May  4 21:06:28 2017] 127.0.0.1:58211 [200]: /app/index.php?query=%5C%5C856177768656450354.owasp.org
+[Thu May  4 21:06:28 2017] 127.0.0.1:57008 [200]: /app/index.php?query=HtTp%3A%2F%2F856177768656450354.owasp.org
+[Thu May  4 21:06:28 2017] 127.0.0.1:47387 [200]: /app/index.php?query=HtTpS%3A%2F%2F856177768656450354.owasp.org
+[Thu May  4 21:06:28 2017] 127.0.0.1:56041 [200]: /app/index.php?query=RfvOACtDAVCDkcNoZRluiCSUpZTUFXYgswNvaOrsKMBOAtTMFXBPkVuKhCZoZAkTmVmnKrCqlTkgMrnRDGucGPuiqJhHFpmMtyfefkGnlDXDkKCqSfGxnWMlfiUmQDKUspISctJulpLXoQkPAmrhyjyKqoQmfURHUKkhynSsPmcRoVJQOEiDDOEvOkLfExIBdLvFWnuMoSeffGTJBMfOrtBYqegsjgNtRggQtOEFvJxoGnJYcHuxwkGiqcFAbQtiicFciuLWauZbCtuIXdRonbqgXcmbRDDRgxBcYqarRdCWOjyTaMCOhFxcXfEsBAhluapWqZbrgxGVcaZnQcILPbsLXmIooVJsVVnUoFqOTuFQInVglPXlwhfaYKyDZqUAsvQxQCtHcWYaYekhPGAXIKBPmKNoRBlxNWJCnAjkZUvOvrekQoQyqBUesjvpykBCmXbQFFbdxEnbknPYigspwXsfMuMiROWSHRrjKqaylNcAnZyMBvhijMiWybNopnvhsjExyvXpFGBmNmGVCSrgWqnGyBvywfGNVpJiDfZQMPJmJxuylsvddUDRNtWKIlWgmoYoeKlBeKnZJMsApsGWKrJflksRYTaiTBrxBphWWteoffpfiePTcQhcQOGSAgeBohIbaYciGDOBtHxsificGnBHxcWaIYdXhlTREwSHgLPNSjJXmERwObxYwOartNKvNVAGDvKTSULbNmtYATEbYyUQfhYEFPpTFMjIRBqEMVqNJWBSkeDtEjwmTWEyKcTEvZYDMHHrHxdenMUqLAUFiwxMKFeoJQHihkuSuRWBWEQjSPNJOyVJcLBqpWomDfValmcbLKdChbnmibdvkqpgKCyOBdwGdKkUWpBEQhdXmccnjqvCYMrLeixgXNBjiHteQbueNByuRNBAKEkutJVIVEtsuwvSymlMRpYkrISeUQBjMYcpASFQHRUhXkABpuPaxRFcJGDTfgERcaQkgRPoTpaBtgqsbknDcGccjLFuWGREFOesmsRAZRrGbAXSoALkKfjERbfFJlmynsKAqIHxsWwiWjtdpiCkLxxcNMCJPPGyoqNDgIaiajyrXbScGCEGPErSSpSCyYjMbRCfJFKWghofSiVvleSptoPctCSUZVVMNbLjalWZNlywSEUjwTSOBhcmKiZaNRTEtHrfgfWsoIRHAolobTckQgQMuvPNUWwAWALfdtOxFTrKxMckGblxffDRaxsjDjtVOtXtjWZGkbgTUeBBkmncSkxOGwDUiHiCMWNNGujZoHDOgEknJmTIKwNKkvROiTrbfNvwIWpqyIVPRXEKDxPxJBpdHrGZGIVqchUONcPgcyCuhTSukAwPsYZFbmIdUxZKVKhJNwpivKaZsCWoxhiMIWQhJUOaDeBqvffJWMUAiLlxeVSZmLLBZdXBsQgciNyWZGLergKfCFLGanipGnXRZCMmrJNnbliuKaiHyrSbAoPusaKcNwedFnaYRFbleDXCXYRIcLFtKFaJmnxYXfbITWGgFKSNmaCVUesBZdEPksVbMCmwgNjYSNgcMNSLxAanRIqlIibGRuNimtPiAXTLoehPZjYOwZmVeYKrxaryfZgmUFavqvUDVDZSSgYCUyFIWOasAuMVDpeNRgYEQFcshwZOgrDKdgUwiqasCCxuOAVClJLnjgYYqGJkXyVeALZCZCMSrtdVdZMOljgMWUKwfwLkVCUEGvnfivmjvhgXSCYegGnYISEpewuKxFggDjKZclesMuBQjXERCQiGvsJEXfpaKVrDjDxaSQyFMPxTWnInIEOGLwRcrkyShhCvcBjjBMwCVbADdUpGFDEXGwjcHsslTijOWRqTLKJZrnfCapRnjEkanJGliHjNdNaJrbdPVnOBIlhlENrkSippkGOiLTyGowWGGCbEGTQLdpCQincDQUfuwilRZtyTxnAWUIHIKMFdBtncOmlbiOZvFdgTRrOKRvILSUnavRkSvCdaxaSJeEmTrXCugPDvsgAWrXRfDujoQoquXNYLqtwOSbJDcyWMZuAGWgeceIIvKsbnkOTUkwhPUVwGxtlOnsDiLffICucAajXulsLlYOObESLflvdIiYcmZmVBBnjAOawg
+[Thu May  4 21:06:28 2017] 127.0.0.1:54989 [200]: /app/index.php?query=ZAP
+[Thu May  4 21:06:29 2017] 127.0.0.1:43829 [200]: /app/index.php?query=ZAP%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%0A
+[Thu May  4 21:06:29 2017] 127.0.0.1:42134 [200]: /app/index.php?query=ZAP+%251%21s%252%21s%253%21s%254%21s%255%21s%256%21s%257%21s%258%21s%259%21s%2510%21s%2511%21s%2512%21s%2513%21s%2514%21s%2515%21s%2516%21s%2517%21s%2518%21s%2519%21s%2520%21s%2521%21n%2522%21n%2523%21n%2524%21n%2525%21n%2526%21n%2527%21n%2528%21n%2529%21n%2530%21n%2531%21n%2532%21n%2533%21n%2534%21n%2535%21n%2536%21n%2537%21n%2538%21n%2539%21n%2540%21n%0A
+[Thu May  4 21:06:29 2017] 127.0.0.1:58140 [200]: /app/index.php?query=Set-cookie%3A+Tamper%3Ded9af1fe-db69-4646-b0b8-7f58c0f17b8d
+[Thu May  4 21:06:29 2017] 127.0.0.1:59557 [200]: /app/index.php?query=any%0D%0ASet-cookie%3A+Tamper%3Ded9af1fe-db69-4646-b0b8-7f58c0f17b8d
+[Thu May  4 21:06:29 2017] 127.0.0.1:44282 [200]: /app/index.php?query=any%3F%0D%0ASet-cookie%3A+Tamper%3Ded9af1fe-db69-4646-b0b8-7f58c0f17b8d
+[Thu May  4 21:06:29 2017] 127.0.0.1:51652 [200]: /app/index.php?query=any%0ASet-cookie%3A+Tamper%3Ded9af1fe-db69-4646-b0b8-7f58c0f17b8d
+[Thu May  4 21:06:29 2017] 127.0.0.1:44374 [200]: /app/index.php?query=any%3F%0ASet-cookie%3A+Tamper%3Ded9af1fe-db69-4646-b0b8-7f58c0f17b8d
+[Thu May  4 21:06:29 2017] 127.0.0.1:47525 [200]: /app/index.php?query=any%0D%0ASet-cookie%3A+Tamper%3Ded9af1fe-db69-4646-b0b8-7f58c0f17b8d%0D%0A
+[Thu May  4 21:06:29 2017] 127.0.0.1:43322 [200]: /app/index.php?query=any%3F%0D%0ASet-cookie%3A+Tamper%3Ded9af1fe-db69-4646-b0b8-7f58c0f17b8d%0D%0A
+[Thu May  4 21:06:29 2017] 127.0.0.1:53151 [200]: /app/index.php
+[Thu May  4 21:06:29 2017] 127.0.0.1:34095 [200]: /app/index.php?=
+[Thu May  4 21:06:29 2017] 127.0.0.1:41744 [200]: /app/index.php?query=
+[Thu May  4 21:06:29 2017] 127.0.0.1:39303 [200]: /app/index.php?query=%40
+[Thu May  4 21:06:29 2017] 127.0.0.1:44245 [200]: /app/index.php?query=%2B
+[Thu May  4 21:06:29 2017] 127.0.0.1:50238 [200]: /app/index.php?query=%00
+[Thu May  4 21:06:29 2017] 127.0.0.1:59366 [200]: /app/index.php?query=%7C
+[Thu May  4 21:06:29 2017] 127.0.0.1:33419 [200]: /app/index.php?query=zApPX0sS
+[Thu May  4 21:06:29 2017] 127.0.0.1:48068 [200]: /app/index.php
+Starting ZAP ...
+Logs dir is /var/lib/jenkins/workspace/BlackBox Testing/Call_ZAP_in_BlackBox_Mode/logs
+Waiting for ZAP to load, 10 seconds ...
+/var/lib/jenkins/workspace/BlackBox Testing/Call_ZAP_in_BlackBox_Mode/
+Accessing target http://127.0.0.1:7070/app/index.php
+Spidering target http://127.0.0.1:7070/app/index.php
+Status 100
+Spider completed
+Scanning target http://127.0.0.1:7070/app/index.php
+Scan progress %: 0
+Scan completed
+Hosts: 127.0.0.1
+Alerts: 
+u"Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server"
+u'X-XSS-Protection'
+u"The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing."
+u'X-Content-Type-Options'
+u"X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks."
+u'X-Frame-Options'
+u"Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server"
+u'X-XSS-Protection'
+u"Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server"
+u'X-XSS-Protection'
+u"Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server"
+u'X-XSS-Protection'
+u"The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing."
+u'X-Content-Type-Options'
+u"X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks."
+u'X-Frame-Options'
+u"Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server"
+u'X-XSS-Protection'
+u"The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing."
+u'X-Content-Type-Options'
+u"X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks."
+u'X-Frame-Options'
+u"Web Browser XSS Protection is not enabled, or is disabled by the configuration of the 'X-XSS-Protection' HTTP response header on the web server"
+u'X-XSS-Protection'
+u"The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing."
+u'X-Content-Type-Options'
+u"X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks."
+u'X-Frame-Options'
+u"Cross-site Scripting (XSS) is an attack technique that involves echoing attacker-supplied code into a user's browser instance. A browser instance can be a standard web browser client, or a browser object embedded in a software product such as the browser within WinAmp, an RSS reader, or an email client. The code itself is usually written in HTML/JavaScript, but may also extend to VBScript, ActiveX, Java, Flash, or any other browser-supported technology.\nWhen an attacker gets a user's browser to execute his/her code, the code will run within the security context (or zone) of the hosting web site. With this level of privilege, the code has the ability to read, modify and transmit any sensitive data accessible by the browser. A Cross-site Scripted user could have his/her account hijacked (cookie theft), their browser redirected to another location, or possibly shown fraudulent content delivered by the web site they are visiting. Cross-site Scripting attacks essentially compromise the trust relationship between a user and the web site. Applications utilizing browser object instances which load content from the file system may execute code under the local machine zone allowing for system compromise.\n\nThere are three types of Cross-site Scripting attacks: non-persistent, persistent and DOM-based.\nNon-persistent attacks and DOM-based attacks require a user to either visit a specially crafted link laced with malicious code, or visit a malicious web page containing a web form, which when posted to the vulnerable site, will mount the attack. Using a malicious form will oftentimes take place when the vulnerable resource only accepts HTTP POST requests. In such a case, the form can be submitted automatically, without the victim's knowledge (e.g. by using JavaScript). Upon clicking on the malicious link or submitting the malicious form, the XSS payload will get echoed back and will get interpreted by the user's browser and execute. Another technique to send almost arbitrary requests (GET and POST) is by using an embedded client, such as Adobe Flash.\nPersistent attacks occur when the malicious code is submitted to a web site where it's stored for a period of time. Examples of an attacker's favorite targets often include message board posts, web mail messages, and web chat software. The unsuspecting user is not required to interact with any additional site/link (e.g. an attacker site or a malicious link sent via email), just simply view the web page containing the code."
+u'query'
+Finished: SUCCESS

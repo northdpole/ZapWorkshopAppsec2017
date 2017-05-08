@@ -1,0 +1,21 @@
+commit 4ff342c014715e3c3d326ab3a8b85f6a01f3c0ca
+tree 79fa203c7e2888dc3275c6686df29dfb1d77ac8b
+parent 816d66969df01e8c5e07461d198bc44b265e380e
+author Spyros <morfeas3000@gmail.com> 2017-05-04 21:05:54 +0100
+committer Spyros <morfeas3000@gmail.com> 2017-05-04 21:05:54 +0100
+
+    fixes
+
+    Signed-off-by: Spyros <morfeas3000@gmail.com>
+
+
+:100644 100644 26b93b9b8c8f21cdfc1bc16c5a052b32c483bde3 32597dfd770f8ac04f845714389d12d2885fdceb M	.idea/ZapWorkshopAppsec2017.iml
+:100644 100644 e76fc64168ea6bc198c9b6603ebade1e2132cc8d 9ff3ebbfde500496beee16e50760d639e03d85d0 M	.idea/misc.xml
+:100644 100644 730275f4ef7f578379acc0eabcf27b30f52fdbac 2aca4f96fd2b5daeb3019685620cf55b4e8a4cd8 M	.idea/workspace.xml
+:000000 100644 0000000000000000000000000000000000000000 6306cbdc516f003238e4c4eb0fb60d8abdc04317 A	Access_To_Unit_Tests/app/app_test.pyc
+:100644 100644 a343ccb91a1ea25a7275dc56c1768796830fc21a dd9a3309a6abe93f5b9f5ff11ffef465ca3cdd84 M	Access_To_Unit_Tests/logs/acces.log
+:100644 100644 7ed3e1e9a4e667905c315c0fce184c3e5abf0ad7 c36951f28994c1781b382a270ecf281c47f1c3cb M	Access_To_Unit_Tests/logs/pyunit.log
+:100644 100644 cd259556c658715e63e56f3908bf8cdafd73fab2 0516d8f86ee426f793cfd331bfc7d4a632cf4171 M	Access_To_Unit_Tests/logs/zapErrors.log
+:100644 100644 b97d38138b968e3c6cae30730a07832093a0c707 cd974edf1e6b4e583b42c05bfdfdf9ffbbdb9605 M	Access_To_Unit_Tests/zapExample.py
+:100644 100644 0c7e7f07e923e30a2a8e74b27e1e7528694df70f a89fce077518c27685b163d7558c83062f07a9f1 M	Call_ZAP_in_BlackBox_Mode/logs/zapErrors.log
+:100644 100644 c2a0386c29ee7e3db1e0b161f3ae8c98708563d4 a9a024f36e8f1292ca7e575e17b177874e0d9c5b M	Call_ZAP_in_BlackBox_Mode/zapExample.py
